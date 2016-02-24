@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+var operation = process.argv[2];
+var answer;
+var n2 = Number(process.argv[4]);
+var n1 = Number(process.argv[3]);
+
+switch(operation){
+	case "add":
+		answer = add(n1, n2);
+		console.log(n1 + " + " + n2 + " = " + answer);
+		break;
+	case "subtract":
+		answer = n1 - n2;
+		console.log(n1 + " - " + n2 + " = " + answer);
+		break;
+	case "multiply":
+		answer = n1 * n2;
+		console.log(n1 + " x " + n2 + " = " + answer);
+		break;
+	case "divide":
+		if(0 === n2) {
+			console.log("Undefined")
+		}
+		else {
+			answer = n1 / n2;
+			console.log(n1 + " / " + n2 + " = " + answer);
+		}
+		break;
+	default:
+		console.log("Invalid operation.");
+		break;
+}
+
+
+function add(a, b) {
+	return (a + b);
+}
