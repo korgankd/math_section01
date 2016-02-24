@@ -11,7 +11,7 @@ switch(operation){
 		console.log(n1 + " + " + n2 + " = " + answer);
 		break;
 	case "subtract":
-		answer = n1 - n2;
+		answer = subtract(n1, n2);
 		console.log(n1 + " - " + n2 + " = " + answer);
 		break;
 	case "multiply":
@@ -36,3 +36,16 @@ switch(operation){
 exports.add = function(a, b) {
 	return (a + b);
 };
+
+exports.subtract = function(a, b) {
+	return (a - b);
+};
+
+exports.multiply = function(a, b) {
+	return (a * b);
+};
+
+exports.divide = function(a, b) {
+	return (a / b);
+};
+
