@@ -2,50 +2,56 @@
 
 var operation = process.argv[2];
 var answer;
-var n2 = Number(process.argv[4]);
-var n1 = Number(process.argv[3]);
+var n2 = +process.argv[4];
+var n1 = +process.argv[3];
 
 switch(operation){
 	case "add":
 		answer = add(n1, n2);
-		console.log(n1 + " + " + n2 + " = " + answer);
 		break;
 	case "subtract":
 		answer = subtract(n1, n2);
-		console.log(n1 + " - " + n2 + " = " + answer);
 		break;
 	case "multiply":
-		answer = n1 * n2;
-		console.log(n1 + " x " + n2 + " = " + answer);
+		answer = multiply(n1, n2);
 		break;
 	case "divide":
-		if(0 === n2) {
-			console.log("Undefined")
-		}
-		else {
-			answer = n1 / n2;
-			console.log(n1 + " / " + n2 + " = " + answer);
-		}
+		answer = divide(n1, n2);
 		break;
 	default:
-		console.log("Invalid operation.");
+		answer = "Invalid operation.";
 		break;
 }
+console.log(answer);
 
-
-exports.add = function(a, b) {
+function add(a, b) {
 	return (a + b);
 };
 
-exports.subtract = function(a, b) {
+function subtract(a, b) {
 	return (a - b);
 };
 
-exports.multiply = function(a, b) {
+function multiply(a, b) {
 	return (a * b);
 };
 
-exports.divide = function(a, b) {
-	return (a / b);
+function divide(a, b) {
+	if(0 === b)
+		return "Undefined.";
+	else 
+		return (a / b);
 };
 
+exports.add = add;
+exports.subtract = subtract;
+exports.multiply = multiply;
+exports.divide = divide;
+
+/*exports.divide = function(a, b) {
+	if(0 === n2)
+		return "Undefined."
+	else 
+		return n1 / n2;
+};
+*/
